@@ -1,7 +1,10 @@
 package com.example.reactiveprogramming.courseUtil;
 
 import com.github.javafaker.Faker;
+import org.reactivestreams.Subscriber;
 
+import java.util.Locale;
+import java.util.concurrent.Flow;
 import java.util.function.Consumer;
 
 public class Util {
@@ -21,6 +24,7 @@ public class Util {
     }
 
     public static Faker getFaker() {
+//    return    Faker.instance(Locale.ITALY);
         return FAKER;
     }
 
@@ -32,4 +36,11 @@ public class Util {
         }
     }
 
+    public  static Subscriber<Object> subscriber(){
+        return new DefaultSubscriber();
+    }
+
+    public  static Subscriber<Object> subscriber(String name){
+        return new DefaultSubscriber(name);
+    }
 }
